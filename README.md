@@ -25,7 +25,7 @@ The SUnit SDK is a package of commercial solutions provided by SHAREit to game p
 
 - Opt consumer proguard file.
 
-Here is the link to the [release notes](https://github.com/AdColony/AdColony-Android-SDK/blob/master/CHANGELOG.md) for all the previous SDK versions.
+Here is the link to the [release notes](https://github.com/sunitsdk/SUnitDemo/blob/master/CHANGELOG.md) for all the previous SDK versions.
 
 ## Getting Started
 
@@ -33,7 +33,7 @@ To get started:
 
 Here is the link to [SUnit SDK integration documentation for native](https://github.com/sunitsdk/SUnitDemo/wiki).
 
-Here is the link to [SUnit SDK integration documentation for Unity](https://github.com/).
+Here is the link to [SUnit SDK integration documentation for Unity](https://github.com/sunitsdk/SUnitDemo/wiki).
 
 ## Contact Us
 
