@@ -1,0 +1,91 @@
+ext {
+    VERSION_SUNIT = "1.2.2"
+
+    VERSION_ADCOLONY_AD = "4.1.0"
+    VERSION_ADMOB_AD = "17.2.1"
+    VERSION_APPLOVIN_AD = "9.8.4"
+    VERSION_FACEBOOK_AD = "5.4.1"
+    VERSION_FYBER_AD = "7.3.4"
+    VERSION_IRONSOURCE_AD = "6.10.2"
+    VERSION_UNITY_ADS_AD = "3.2.0"
+    VERSION_VUNGLE_AD = "6.4.11"
+    VERSION_MOPUB_AD = "5.8.0"
+    VERSION_PLAY_SERVICES_LOCATION = "16.0.0"
+    VERSION_GSON = "2.8.1"
+    VERSION_OKHTTP = "3.10.0"
+    VERSION_FLURRY = "12.1.0"
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        maven {
+            url "https://adcolony.bintray.com/AdColony"
+        }
+        maven {
+            url "https://dl.bintray.com/ironsource-mobile/android-sdk"
+        }
+        maven {
+            name "Fyber's maven repo"
+            url "https://fyber.bintray.com/marketplace"
+        }
+
+        maven {
+            name "SUnit's maven repo"
+            url "https://dl.bintray.com/sunitsdk/SUnit"
+        }
+
+        maven {
+            url "https://dl.bintray.com/shareit-pay/PaySDK"
+        }
+
+    }
+}
+
+dependencies {
+    // Required dependencies
+    api "com.sunit:aggregation-android:$VERSION_SUNIT"
+
+    // Optional dependencies
+    // AdColony
+    implementation "com.adcolony:sdk:$VERSION_ADCOLONY_AD"
+
+    // AdMob
+    implementation "com.google.android.gms:play-services-ads:$VERSION_ADMOB_AD"
+
+    // AppLovin
+    implementation "com.applovin:applovin-sdk:$VERSION_APPLOVIN_AD"
+
+    // Facebook
+    implementation "com.facebook.android:audience-network-sdk:$VERSION_FACEBOOK_AD"
+
+    // UnityAd
+    implementation "com.unity3d.ads:unity-ads:$VERSION_UNITY_ADS_AD"
+
+    // Vungle
+    implementation "com.vungle:publisher-sdk-android:$VERSION_VUNGLE_AD"
+
+    // Mopub
+    implementation("com.mopub:mopub-sdk:$VERSION_MOPUB_AD@aar") {
+        configurations.all {
+            exclude module: 'libAvid-mopub' // To exclude AVID
+            exclude module: 'moat-mobile-app-kit' // To exclude Moat
+            exclude group: 'com.mopub', module: 'mopub-sdk-native-static'
+            exclude group: 'com.mopub', module: 'mopub-sdk-native-video'
+        }
+        transitive = true
+    }
+
+    // Fyber
+    implementation "com.fyber.vamp:core-sdk:${VERSION_FYBER_AD}"
+    implementation "com.fyber.vamp:video-kit:${VERSION_FYBER_AD}"
+    implementation "com.fyber.vamp:mraid-kit:${VERSION_FYBER_AD}"
+
+    // IronSource
+    implementation "com.ironsource.sdk:mediationsdk:$VERSION_IRONSOURCE_AD@jar"
+
+    // Required for Flurry Analytics integration
+    implementation "com.flurry.android:analytics:$VERSION_FLURRY"
+}

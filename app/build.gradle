@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+//SHAREit begin
+apply from: 'shareit_sdk.gradle'
+//SHAREit end
+
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.shareit.sunit"
+        minSdkVersion 16
+        targetSdkVersion 26
+
+        versionCode 1
+        versionName "1.0.8.8"
+
+        //SHAREit begin
+        multiDexEnabled true
+        //SHAREit end
+    }
+
+    flavorDimensions("product")
+
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+        }
+        dev {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+}

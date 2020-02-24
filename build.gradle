@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+
+        maven {
+            url "https://dl.bintray.com/ironsource-mobile/android-sdk"
+        }
+        maven {
+            name "Fyber's maven repo"
+            url "https://fyber.bintray.com/marketplace"
+        }
+
+        maven {
+            url "https://adcolony.bintray.com/AdColony"
+        }
+
+        maven {
+            name "SUnit's maven repo"
+            url "https://dl.bintray.com/sunitsdk/SUnit"
+        }
+        maven {
+            url "https://dl.bintray.com/shareit-pay/PaySDK"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

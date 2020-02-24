@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.shareit.sunit">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:replace="android:maxSdkVersion"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--SHAREit begin-->
+        <meta-data
+            android:name="flurry.sdk.API_KEY"
+            android:value="KYY7JJ6XHZTD62C3M8HR" />
+        <!-- <meta-data
+            android:name="flurry.sdk.API_KEY"
+            android:value="YOUR_FLURRY_KEY"/> -->
+
+        <meta-data
+            android:name="com.ushareit.ads.KEY_APP_ID"
+            android:value="1014yOd"/>
+        <!-- <meta-data
+            android:name="com.ushareit.ads.KEY_APP_ID"
+            android:value="YOUR_APP_ID"/> -->
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4974149037120311~2216742292" />
+        <!-- <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ADMOB_APP_ID" /> -->
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="U08_TRT-FW25APG_74AJ1DIrsogJtAkHynf5KgJPzhQwvdyeZ3C6UkclPah0MesOF6ZZMF0B1FBEOOnmnHIdc2" />
+        <!-- <meta-data
+            android:name="applovin.sdk.key"
+            android:value="APPLOVIN_SDK_KEY" /> -->
+
+        <meta-data
+            android:name="com.sunit.channel"
+            android:value="SHAREit" />
+        <!-- <meta-data
+             android:name="com.sunit.channel"
+             android:value="YOUR_CHANNEL" /> -->
+        <!--SHAREit end-->
+
+        <activity
+            android:name="com.shareit.sunit.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.shareit.sunit.TestPayActivity"/>
+        <activity android:name="com.shareit.sunit.TestGameActivity" />
+
+    </application>
+</manifest>

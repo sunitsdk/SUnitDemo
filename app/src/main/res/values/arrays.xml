@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="langList">
+        <item>System setting</item>
+        <item>en</item>
+        <item>hi</item>
+        <item>fil</item>
+        <item>in</item>
+        <item>ms</item>
+        <item>zh</item>
+        <item>kn</item>
+        <item>ml</item>
+        <item>pa</item>
+        <item>ta</item>
+        <item>te</item>
+        <item>mr</item>
+    </string-array>
+</resources>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">SunitDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="environment">Environment</string>
+    <string name="merchantId">Merchant id</string>
+    <string name="merchantOrderId">Order id</string>
+    <string name="amount">Amount</string>
+    <string name="currentcy">Currency</string>
+    <string name="callbackUrl">Callback url</string>
+    <string name="orderSubject">Order subject</string>
+    <string name="orderBody">Order description</string>
+    <string name="merchantUserId">User id</string>
+    <string name="token">Token</string>
+    <string name="secretKey">SecretKey</string>
+    <string name="countryCode">CountryCode</string>
+
+    <string name="merchantDes">Custom information</string>
+    <string name="discountAmount">Discount amount</string>
+    <string name="mail">Mail</string>
+    <string name="phone">Mobile num</string>
+    <string name="lang">Language</string>
+    <string name="merchantExtra">Custom extra info</string>
+
+    <string name="optionalDes">The following are optional parameters, you can input. </string>
+    <string name="countryCodeDes">The alpha-2 of the country, they are uppercase letters. </string>
+    <string name="payResultType">Use Merchant Pay Result UI</string>
+    <string name="testUrl">Test Url</string>
+
+    <string name="test_button">Test button</string>
+    <string name="pay_result_title">Pay result</string>
+    <string name="common_exit">Exit</string>
+    <string name="payValidDurationDes">Pay Valid duration</string>
+</resources>
