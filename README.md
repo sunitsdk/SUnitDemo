@@ -31,7 +31,7 @@ Here is the link to the [release notes](https://github.com/sunitsdk/SUnitDemo/bl
 
 To get started:
 
-Here is the link to [SUnit SDK integration documentation for native](https://github.com/sunitsdk/SUnitDemo/wiki/%E5%B9%BF%E5%91%8A%E6%A8%A1%E5%9D%97).
+Here is the link to [SUnit SDK integration documentation for native](https://github.com/sunitsdk/SUnitDemo/wiki).
 
 Here is the link to [SUnit SDK integration documentation for Unity](https://github.com/sunitsdk/SUnitDemo/wiki).
 
