@@ -31,11 +31,9 @@ Here is the link to the [release notes](https://github.com/sunitsdk/SUnitDemo/bl
 
 To get started:
 
-Here is the link to [SUnit SDK integration documentation for native](https://github.com/sunitsdk/SUnitDemo/wiki).
-
-Here is the link to [SUnit SDK integration documentation for Unity](https://github.com/sunitsdk/SUnitDemo/wiki).
+Here is the link to [SUnit SDK integration documentation](https://github.com/sunitsdk/SUnitDemo/wiki).
 
 ## Contact Us
 
-For more information, please email us at [support@ushareit.com](mailto:cuipeng@ushareit.com).
+For more information, please email us at [support@ushareit.com](mailto:chenbin@ushareit.com).
 
