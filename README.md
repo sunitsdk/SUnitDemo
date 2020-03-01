@@ -31,7 +31,9 @@ Here is the link to the [release notes](https://github.com/sunitsdk/SUnitDemo/bl
 
 To get started:
 
-Here is the link to [SUnit SDK integration documentation](https://github.com/sunitsdk/SUnitDemo/wiki).
+Here is the link to [SUnit SDK integration documentation](https://github.com/sunitsdk/SUnitDemo/wiki/SUnit-SDK-Documentation(Android)).
+
+这里是中文文档  [SUnit SDK 原生接入文档](https://github.com/sunitsdk/SUnitDemo/wiki).
 
 ## Contact Us
 
