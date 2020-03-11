@@ -1,5 +1,5 @@
 ext {
-    VERSION_SUNIT = "1.2.2"
+    VERSION_SUNIT = "1.2.3.6"
 
     VERSION_ADCOLONY_AD = "4.1.0"
     VERSION_ADMOB_AD = "17.2.1"

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.ushareit.aggregationsdk.BuildConfig;
 import com.ushareit.aggregationsdk.SHAREitAggregation;
 import com.ushareit.aggregationsdk.SHAREitEnv;
+import com.ushareit.aggregationsdk.SHAREitLog;
 import com.ushareit.paysdk.pay.entry.SPBuildType;
 import com.ushareit.paysdk.pay.entry.SPMerchantParam;
 import com.ushareit.paysdk.pay.entry.SPPayCallback;
@@ -486,7 +487,7 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         String testUrl = "https://pay-gate-uat.shareitpay.in/aggregate-pay-gate/api/gateway";
         String prodUrl = "https://pay-gate.shareitpay.in/aggregate-pay-gate/api/gateway";
 
-        SHAREitEnv env = SHAREitAggregation.getEnv();
+        SHAREitEnv env = SHAREitLog.currentEnv;
         String url = "";
         switch (env) {
             case Test:
