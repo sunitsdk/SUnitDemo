@@ -23,6 +23,7 @@ import com.ushareit.ads.ad.InterstitialAd;
 import com.ushareit.ads.ad.RewardedAd;
 import com.ushareit.ads.base.AdException;
 import com.ushareit.ads.openapi.ShareItAd;
+import com.ushareit.aggregationsdk.SHAREitAggregation;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -68,14 +69,7 @@ public class MainActivity extends Activity {
     }
 
     private void requestPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    0);
-        }
+        SHAREitAggregation.requestStoragePermissions(this);
     }
 
     public void showInterstitial(View view) {
