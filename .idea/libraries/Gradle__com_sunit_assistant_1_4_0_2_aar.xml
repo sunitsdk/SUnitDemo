@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sunit:assistant:1.4.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dfb51a7c33647675087d4f51c249098d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dfb51a7c33647675087d4f51c249098d/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sunit/assistant/1.4.0.2/eff2987ee20b12e65382d08fb839684e849ab05/assistant-1.4.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

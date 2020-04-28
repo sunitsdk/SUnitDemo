@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sunit:sdkalive:0.0.1.4@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34ab2c90d091a966c4ab694bb025f03a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34ab2c90d091a966c4ab694bb025f03a/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sunit/sdkalive/0.0.1.4/3b07a3307c7e0f8c5e55a27ea3c752702c1664f9/sdkalive-0.0.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

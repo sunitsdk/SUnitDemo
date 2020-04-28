@@ -13,6 +13,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        tools:replace="android:fullBackupContent"
+        android:fullBackupContent="true"
+        tools:ignore="UnusedAttribute"
         android:theme="@style/AppTheme">
         <!--SHAREit begin-->
         <meta-data
@@ -21,6 +24,19 @@
         <!-- <meta-data
             android:name="flurry.sdk.API_KEY"
             android:value="YOUR_FLURRY_KEY"/> -->
+
+        <!-- ********************** AppsFlyer Start **************************** -->
+        <meta-data
+            android:name="appsflyer.sdk.DEV_KEY"
+            android:value="KpMRdc8Ayx34ZApA4Q8kA4" />
+        <!-- ********************** AppsFlyer End **************************** -->
+
+        <!-- ********************** Facebook Start **************************** -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="fb1644475872501583" />
+        <!-- ********************** Facebook End **************************** -->
+
 
         <meta-data
             android:name="com.ushareit.ads.KEY_APP_ID"

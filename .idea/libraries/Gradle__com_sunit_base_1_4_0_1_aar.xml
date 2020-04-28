@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sunit:base:1.4.0.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef47ae055436eda425551996ac5f880f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef47ae055436eda425551996ac5f880f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sunit/base/1.4.0.1/1d2ef05a9c397721f59b42dd1901431b1eb8c1da/base-1.4.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
