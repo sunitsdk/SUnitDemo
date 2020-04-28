@@ -45,6 +45,48 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center_vertical">
                 <TextView
+                    android:id="@+id/envTextView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/environment"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"/>
+                <Spinner
+                    android:id="@+id/envSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <!-- 支付类别 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bizType"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"/>
+                <Spinner
+                    android:id="@+id/bizTypeSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:entries="@array/payCategoryList"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+                <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="@string/merchantId"
@@ -100,7 +142,7 @@
                     android:textColor="@color/black"
                     android:textSize="12sp"/>
                 <EditText
-                    android:id="@+id/amountEt"
+                    android:id="@+id/totalAmountEt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -256,25 +298,6 @@
                     android:hint="@string/countryCodeDes"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_vertical">
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/testUrl"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"/>
-                <EditText
-                    android:id="@+id/testUrlEt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="12sp"/>
-            </LinearLayout>
-
             <RelativeLayout
                 android:id="@+id/dividerLayout"
                 android:layout_width="match_parent"
@@ -306,6 +329,7 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
+                <!--支付方式-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -313,34 +337,38 @@
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/mail"
+                        android:text="@string/paymentDetail"
                         android:textColor="@color/black"
                         android:textSize="12sp"/>
                     <EditText
-                        android:id="@+id/mailEt"
+                        android:id="@+id/paymentDetailEt"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp"
+                        android:lines="4"
+                        android:hint="@string/paymentDetailHint"/>
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_vertical">
+                    android:orientation="horizontal">
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/phone"
+                        android:text="@string/userDetail"
                         android:textColor="@color/black"
                         android:textSize="12sp"/>
                     <EditText
-                        android:id="@+id/phoneEt"
+                        android:id="@+id/userDetail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textSize="12sp"/>
+                        android:textSize="12sp"
+                        android:minLines="10"
+                        android:hint="@string/userDetailHint"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -382,26 +410,6 @@
                         android:textSize="12sp"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_vertical">
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/discountAmount"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"/>
-                    <EditText
-                        android:id="@+id/discountAmountEt"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="12sp"/>
-                </LinearLayout>
-
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -415,7 +423,7 @@
                         android:textColor="@color/black"
                         android:textSize="12sp"/>
                     <EditText
-                        android:id="@+id/extraEt"
+                        android:id="@+id/referenceEt"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

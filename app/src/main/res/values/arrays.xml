@@ -15,4 +15,9 @@
         <item>te</item>
         <item>mr</item>
     </string-array>
+    <string-array name="payCategoryList">
+
+        <item>@string/normalPayment</item>
+        <item>@string/overseaPayment</item>
+    </string-array>
 </resources>

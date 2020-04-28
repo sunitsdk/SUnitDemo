@@ -11,16 +11,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.ushareit.aggregationsdk.BuildConfig;
-import com.ushareit.aggregationsdk.SHAREitAggregation;
-import com.ushareit.aggregationsdk.SHAREitEnv;
-import com.ushareit.aggregationsdk.SHAREitLog;
+
+import com.shareit.sunit.HttpHelper;
+import com.shareit.sunit.HttpResponse;
+import com.shareit.sunit.R;
+import com.shareit.sunit.TokenBean;
 import com.ushareit.paysdk.pay.entry.SPBuildType;
 import com.ushareit.paysdk.pay.entry.SPMerchantParam;
 import com.ushareit.paysdk.pay.entry.SPPayCallback;
@@ -29,6 +31,7 @@ import com.ushareit.paysdk.pay.entry.SPPayService;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +44,7 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     private static final String KEY_BUILD_TYPE = "buildType";
     private static final String KEY_MERCHANT_ID = "merchantId";
     private static final String KEY_ORDER_ID = "orderId";
-    private static final String KEY_AMOUNT = "amount";
+    private static final String KEY_TOTAL_AMOUNT = "amount";
     private static final String KEY_CURRENTCY = "currency";
     private static final String KEY_CALLBACK_URL = "callbackUrl";
     private static final String KEY_SUBJECT = "subject";
@@ -50,16 +53,16 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     private static final String KEY_TOKEN = "token";
     private static final String KEY_SECRET_KEY = "secretKey";
     private static final String KEY_COUNTRY_CODE = "countryCode"; //国家码：2位字母缩写，必须大写
-    private static final String KEY_TEST_URL = "testUrl";
 
     private static final String KEY_DESC = "desc";
     private static final String KEY_LANGUAGE = "language";
-    private static final String KEY_DISCOUNT_AMOUNT = "discountAmount";
-    private static final String KEY_MAIL = "mail";
-    private static final String KEY_PHONE = "phone";
-    private static final String KEY_EXTRA = "extra";
+    private static final String KEY_user_DETAIL = "userDetail";
+    private static final String KEY_REFERENCE = "reference";
     private static final String KEY_PAY_VALID_DURATION = "payValidDuration"; // 单位：秒
     private static final String KEY_PAY_RESULT_TYPE = "payResultType"; //是否使用商户支付结果页
+
+    private static final String KEY_BIZ_TYPE = "bizType";
+    private static final String KEY_PAYMENT_DETAIL = "paymentDetail";
 
     private static final String MERCHANT_ID = "M36977092608";
     private static final String SECRET_KEY = "payment-bootstra";
@@ -67,12 +70,17 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     //    private static final String DEFAULT_URL = "http://192.168.23.200:8076/#/";
     private static final String DEFAULT_URL = "";
 
-    private HashMap<String, SPBuildType> buildTypeMap = new HashMap<>();
-    private static final String DEFAULT_BUILD_TYPE = SPBuildType.Test.name();
+    private HashMap<String, String> buildTypeMap = new HashMap<>();
+    private ArrayAdapter mSpinnerAdapter;
+    private ArrayList<String> mSpinnerData = new ArrayList<>();
+    private static final String DEFAULT_BUILD_TYPE = SPBuildType.Test;
+    private static final String[] bizTypes = new String[] { "STANDARD", "IN_CB", ""};
+
+    private Spinner mSpinner;
 
     private EditText merchantIdEt;
     private EditText orderIdEt;
-    private EditText amountEt;
+    private EditText totalAmountEt;
     private EditText currentcyEt;
     private EditText callbackUrlEt;
     private EditText subjectEt;
@@ -80,14 +88,11 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     private EditText tokenEt;
     private EditText secretKeyEt;
     private EditText countryCodeEt;
-    private EditText testUrlEt;
 
     //optional
     private EditText descEt;
-    private EditText discountAmountEt;
-    private EditText mailEt;
-    private EditText phoneEt;
-    private EditText extraEt;
+    private EditText userDetailEt;
+    private EditText referenceEt;
     private Spinner mLangSpinner;
     private EditText mTimeoutInSeconds; //支付有效时长，单位毫秒
     private CheckBox mPayResultTypeCheckBox;
@@ -95,6 +100,8 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     private View dividerLayout;
     private ImageView indicatorIv;
     private View optionalLayout;
+    private Spinner bizTypeSpinner;
+    private EditText paymentDetailEt;
 
     private static final int MSG_GET_TOKEN_SUCCESS = 1;
     private static final int MSG_CLICK_COUNT = 2;
@@ -131,9 +138,11 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
 
 
     private void initControl() {
+        mSpinner = findViewById(R.id.envSpinner);
+
         merchantIdEt = findViewById(R.id.merchantIdEt);
         orderIdEt = findViewById(R.id.orderIdEt);
-        amountEt = findViewById(R.id.amountEt);
+        totalAmountEt = findViewById(R.id.totalAmountEt);
         currentcyEt = findViewById(R.id.currentcyEt);
         callbackUrlEt = findViewById(R.id.callbackUrlEt);
         subjectEt = findViewById(R.id.subjectEt);
@@ -141,14 +150,11 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         tokenEt = findViewById(R.id.tokenEt);
         secretKeyEt = findViewById(R.id.secretKeyEt);
         countryCodeEt = findViewById(R.id.countryEt);
-        testUrlEt = findViewById(R.id.testUrlEt);
 
         descEt = findViewById(R.id.desEt);
         mLangSpinner = findViewById(R.id.langSpinner);
-        discountAmountEt = findViewById(R.id.discountAmountEt);
-        mailEt = findViewById(R.id.mailEt);
-        phoneEt = findViewById(R.id.phoneEt);
-        extraEt = findViewById(R.id.extraEt);
+        userDetailEt = findViewById(R.id.userDetail);
+        referenceEt = findViewById(R.id.referenceEt);
 
         dividerLayout = findViewById(R.id.dividerLayout);
         indicatorIv = findViewById(R.id.indicatorIv);
@@ -156,12 +162,18 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         mTimeoutInSeconds = findViewById(R.id.timeoutInSeconds);
         mPayResultTypeCheckBox = findViewById(R.id.payResultTypeCb);
 
+        bizTypeSpinner = findViewById(R.id.bizTypeSpinner);
+        paymentDetailEt = findViewById(R.id.paymentDetailEt);
+
         dividerLayout.setOnClickListener(this);
 
-        mLangSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        findViewById(R.id.envTextView).setOnClickListener(this);
+
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if(mSpinnerData != null && position < mSpinnerData.size())
+                    SPPayService.setBuildType(buildTypeMap.get(mSpinnerData.get(position)));
             }
 
             @Override
@@ -172,13 +184,19 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
-        setTitle(getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
+        setTitle(getString(R.string.app_name));
+        initBuildType();
+        mSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mSpinnerData);
+        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mSpinner.setAdapter(mSpinnerAdapter);
+
 
         initDefaultData();
 
+        selectBuildTypeSpinner(getVal(KEY_BUILD_TYPE, DEFAULT_BUILD_TYPE));
         initEditText(merchantIdEt, KEY_MERCHANT_ID);
         initEditText(orderIdEt, KEY_ORDER_ID);
-        initEditText(amountEt, KEY_AMOUNT);
+        initEditText(totalAmountEt, KEY_TOTAL_AMOUNT);
         initEditText(currentcyEt, KEY_CURRENTCY);
         initEditText(callbackUrlEt, KEY_CALLBACK_URL);
         initEditText(subjectEt, KEY_SUBJECT);
@@ -186,17 +204,27 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         initEditText(tokenEt, KEY_TOKEN);
         initEditText(secretKeyEt, KEY_SECRET_KEY);
         initEditText(countryCodeEt, KEY_COUNTRY_CODE);
-        initEditText(testUrlEt, KEY_TEST_URL);
 
         initEditText(descEt, KEY_DESC);
+        initEditText(paymentDetailEt, KEY_PAYMENT_DETAIL);
+
         String language = getVal(KEY_LANGUAGE, "0");
         if(!TextUtils.isEmpty(language)) {
             mLangSpinner.setSelection(Integer.parseInt(language));
         }
-        initEditText(discountAmountEt, KEY_DISCOUNT_AMOUNT);
-        initEditText(mailEt, KEY_MAIL);
-        initEditText(phoneEt, KEY_PHONE);
-        initEditText(extraEt, KEY_EXTRA);
+
+        String payCategory = getVal(KEY_BIZ_TYPE, "0");
+        if(!TextUtils.isEmpty(payCategory)) {
+            int selIndex = 0;
+            try {
+                selIndex = Integer.parseInt(payCategory);
+            }catch (Exception e){
+            }
+            bizTypeSpinner.setSelection(selIndex);
+        }
+
+        initEditText(userDetailEt, KEY_user_DETAIL);
+        initEditText(referenceEt, KEY_REFERENCE);
         initEditText(mTimeoutInSeconds, KEY_PAY_VALID_DURATION);
         String payResultType = getVal(KEY_PAY_RESULT_TYPE, SPMerchantParam.PAY_RESULT_TYPE_SDK);
         if(!TextUtils.isEmpty(payResultType) && payResultType.equals(SPMerchantParam.PAY_RESULT_TYPE_MERCHANT)) {
@@ -208,62 +236,55 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
 
 
     private void initDefaultData() {
-        if(buildTypeMap.size() == 0) {
-            for(SPBuildType type : SPBuildType.values())
-                buildTypeMap.put(type.name(), type);
-        }
         String merchantId = getVal(KEY_MERCHANT_ID, "-1");
         if(TextUtils.isEmpty(merchantId) || merchantId.equals("-1")) {
             save(KEY_BUILD_TYPE, DEFAULT_BUILD_TYPE);
             save(KEY_MERCHANT_ID, MERCHANT_ID);
             save(KEY_ORDER_ID, "2015032001010100091");
-            save(KEY_AMOUNT, "100");
+            save(KEY_TOTAL_AMOUNT, "100");
             save(KEY_CURRENTCY, "INR");
-            save(KEY_CALLBACK_URL, "http://pay.ushareit.com/callback");
+            save(KEY_CALLBACK_URL, "");
             save(KEY_SUBJECT, "test subject");
             save(KEY_USER_ID, "TESTID54722");
-            save(KEY_MAIL, "endlesshb@gmail.com");
-            save(KEY_PHONE, "13564320000");
             save(KEY_TOKEN, "test");
             save(KEY_SECRET_KEY, SECRET_KEY);
             save(KEY_COUNTRY_CODE, "IN");
-            save(KEY_TEST_URL, DEFAULT_URL);
         }
     }
 
     public void onStartH5PayClick(View view) {
-//        TestWebUtils.testHttps();
         Log.d(TAG, "onStartH5PayClick");
-//        openH5("file:///android_asset/paysdk_hybrid.html");
-        openH5(testUrlEt.getText().toString());
+        openH5("");
     }
 
     private void openH5(String url) {
         saveAll();
-
         SPMerchantParam merchantParam = null;
         try {
             SPMerchantParam.Builder builder = new SPMerchantParam.Builder()
                     .setMerchantId(merchantIdEt.getText().toString())
                     .setOrderId(orderIdEt.getText().toString())
-                    .setAmount(amountEt.getText().toString())
+                    .setTotalAmount(totalAmountEt.getText().toString())
                     .setCurrency(currentcyEt.getText().toString())
                     .setCallbackUrl(callbackUrlEt.getText().toString())
                     .setSubject(subjectEt.getText().toString())
-                    .setCustId(userIdEt.getText().toString())
+                    .setUserId(userIdEt.getText().toString())
                     .setToken(tokenEt.getText().toString())
                     .setCountryCode(countryCodeEt.getText().toString())
                     .setDescription(descEt.getText().toString())
-                    .setMail(mailEt.getText().toString())
-                    .setMobileNo(phoneEt.getText().toString())
-                    .setExtra(extraEt.getText().toString())
-                    .setResultPageShowType(mPayResultTypeCheckBox.isChecked() ? SPMerchantParam.PAY_RESULT_TYPE_MERCHANT : SPMerchantParam.PAY_RESULT_TYPE_SDK);
+                    .setUserDetail(userDetailEt.getText().toString())
+                    .setBizType(getBizType())
+                    .setReference(referenceEt.getText().toString())
+                    .setShowResult(mPayResultTypeCheckBox.isChecked() ? SPMerchantParam.PAY_RESULT_TYPE_MERCHANT : SPMerchantParam.PAY_RESULT_TYPE_SDK);
             //
             if(!TextUtils.isEmpty(mTimeoutInSeconds.getText())) {
-                builder.setTimeoutInSeconds(safeParseLong(mTimeoutInSeconds.getText().toString()));
+                builder.setExpireTime(safeParseLong(mTimeoutInSeconds.getText().toString()));
             }
             if(mLangSpinner.getSelectedItemPosition() != 0) {
                 builder.setLanguage((String)mLangSpinner.getSelectedItem());
+            }
+            if(!TextUtils.isEmpty(paymentDetailEt.getText())) {
+                builder.setPaymentDetail(paymentDetailEt.getText().toString());
             }
 
             merchantParam = builder.build();
@@ -276,15 +297,15 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
 
         SPPayCallback mPayCallback = new SPPayCallback() {
             @Override
-            public void onResult(int code, String orderId, String message, String extra) {
+            public void onResult(int code, String orderId, String message, String reference) {
                 Log.d(TAG, "pay callback: [code=" + code + " orderId=" + orderId
-                        + " message=" + message + " " + extra);
+                        + " message=" + message + " " + reference);
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("code", code);
                     jsonObject.put("message", message);
                     jsonObject.put("orderId", orderId);
-                    jsonObject.put("extra", extra);
+                    jsonObject.put("reference", reference);
                     if(code == 10000)
                         Log.d(TAG, "Payment success");
                     else if(code == 10001)
@@ -303,10 +324,7 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         };
 
         SPPayService payService = new SPPayService();
-        if(!TextUtils.isEmpty(url))
-            payService.startPayActivityByUrl(this, url, merchantParam, mPayCallback);
-        else
-            payService.startPayActivity(this, merchantParam, mPayCallback);
+        payService.startPayActivity(this, merchantParam, mPayCallback);
     }
 
     private void initEditText(EditText editText, String key) {
@@ -319,7 +337,7 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
     private void saveAll() {
         saveEditText(merchantIdEt, KEY_MERCHANT_ID);
         saveEditText(orderIdEt, KEY_ORDER_ID);
-        saveEditText(amountEt, KEY_AMOUNT);
+        saveEditText(totalAmountEt, KEY_TOTAL_AMOUNT);
         saveEditText(currentcyEt, KEY_CURRENTCY);
         saveEditText(callbackUrlEt, KEY_CALLBACK_URL);
         saveEditText(subjectEt, KEY_SUBJECT);
@@ -327,17 +345,18 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         saveEditText(tokenEt, KEY_TOKEN);
         saveEditText(secretKeyEt, KEY_SECRET_KEY);
         saveEditText(countryCodeEt, KEY_COUNTRY_CODE);
-        saveEditText(testUrlEt, KEY_TEST_URL);
 
         saveEditText(descEt, KEY_DESC);
-        saveEditText(discountAmountEt, KEY_DISCOUNT_AMOUNT);
-        saveEditText(mailEt, KEY_MAIL);
-        saveEditText(phoneEt, KEY_PHONE);
-        saveEditText(extraEt, KEY_EXTRA);
+        saveEditText(userDetailEt, KEY_user_DETAIL);
+        saveEditText(referenceEt, KEY_REFERENCE);
         saveEditText(mTimeoutInSeconds, KEY_PAY_VALID_DURATION);
 
+        save(KEY_BUILD_TYPE, (String)mSpinner.getSelectedItem());
         save(KEY_LANGUAGE, mLangSpinner.getSelectedItemPosition()+"");
         save(KEY_PAY_RESULT_TYPE, mPayResultTypeCheckBox.isChecked() ? SPMerchantParam.PAY_RESULT_TYPE_MERCHANT : SPMerchantParam.PAY_RESULT_TYPE_SDK);
+
+        save(KEY_BIZ_TYPE, bizTypeSpinner.getSelectedItemPosition()+"");
+        saveEditText(paymentDetailEt, KEY_PAYMENT_DETAIL);
     }
 
     private void saveEditText(EditText editText, String key) {
@@ -472,6 +491,16 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         }
     }
 
+    private void selectBuildTypeSpinner(String val) {
+        int selIndex = 0;
+        if(!TextUtils.isEmpty(val)) {
+            selIndex = mSpinnerData.indexOf(val);
+            if(selIndex < 0 || selIndex >= mSpinnerData.size())
+                selIndex = 0;
+        }
+        mSpinner.setSelection(selIndex);
+    }
+
     private long safeParseLong(String val) {
         long result = 0;
         try {
@@ -487,17 +516,33 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
         String testUrl = "https://pay-gate-uat.shareitpay.in/aggregate-pay-gate/api/gateway";
         String prodUrl = "https://pay-gate.shareitpay.in/aggregate-pay-gate/api/gateway";
 
-        SHAREitEnv env = SHAREitLog.currentEnv;
+        String selVal = (String)mSpinner.getSelectedItem();
         String url = "";
-        switch (env) {
-            case Test:
+        String buildType = buildTypeMap.get(selVal);
+        switch (buildType) {
+            case SPBuildType.Test:
                 url = testUrl;
                 break;
-            case Prod:
+            case SPBuildType.Prod:
                 url = prodUrl;
                 break;
         }
         return url;
+    }
+
+    private String getBizType() {
+        int index = bizTypeSpinner.getSelectedItemPosition();
+        if(index >= 0 && index < bizTypes.length)
+            return bizTypes[index];
+        return "";
+    }
+
+    private void initBuildType() {
+        mSpinnerData.add(SPBuildType.Test);
+        mSpinnerData.add(SPBuildType.Prod);
+
+        buildTypeMap.put(SPBuildType.Test, SPBuildType.Test);
+        buildTypeMap.put(SPBuildType.Prod, SPBuildType.Prod);
     }
 
     private static void showToast(Context context, String msg, int duration) {

@@ -1,10 +1,12 @@
-<resources>
-    <string name="app_name">SunitDemo</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">AggregationDemo</string>
     <string name="action_settings">Settings</string>
+    <string name="app_id" tools:ignore="ExtraTranslation">1094GaL</string>
+
     <string name="environment">Environment</string>
     <string name="merchantId">Merchant id</string>
     <string name="merchantOrderId">Order id</string>
-    <string name="amount">Amount</string>
+    <string name="amount">Total Amount</string>
     <string name="currentcy">Currency</string>
     <string name="callbackUrl">Callback url</string>
     <string name="orderSubject">Order subject</string>
@@ -14,12 +16,11 @@
     <string name="secretKey">SecretKey</string>
     <string name="countryCode">CountryCode</string>
 
-    <string name="merchantDes">Custom information</string>
+    <string name="merchantDes">Description</string>
     <string name="discountAmount">Discount amount</string>
-    <string name="mail">Mail</string>
-    <string name="phone">Mobile num</string>
+    <string name="userDetail">User detail</string>
     <string name="lang">Language</string>
-    <string name="merchantExtra">Custom extra info</string>
+    <string name="merchantExtra">Reference</string>
 
     <string name="optionalDes">The following are optional parameters, you can input. </string>
     <string name="countryCodeDes">The alpha-2 of the country, they are uppercase letters. </string>
@@ -30,4 +31,10 @@
     <string name="pay_result_title">Pay result</string>
     <string name="common_exit">Exit</string>
     <string name="payValidDurationDes">Pay Valid duration</string>
+    <string name="bizType">BizType</string>
+    <string name="paymentDetail">Payment Detail</string>
+    <string name="paymentDetailHint">{\n\"paymentType\":\"00\",\n\"accountNo\":\"\"\n}</string>
+    <string name="userDetailHint">{\n\"name\":\"\",\n\"email\":\"\",\n\"phoneNumber\":\"\",\n\"districtCode\":\"\",\n\"deviceId\":\"\",\n\"citizenIdNo\":\"\",\n\"ip\":\"\"\n}</string>
+    <string name="normalPayment">STANDARD</string>
+    <string name="overseaPayment">IN_CB</string>
 </resources>
