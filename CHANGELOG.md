@@ -1,4 +1,54 @@
-#### 1.2.6.0
+
+#### [里程碑版本]1.3.1.1
+2020-04-20
+1. 升级 androidx 版本
+2. 升级广告源版本: admob facebook mopub applovin unityAds
+3. 增加 admob 聚合 applovin, admob 聚合 unityAds
+
+接入改动(替换 shareit_sdk.gradle 文件):
+1. 更改广告源版本为
+```
+    ext {
+        VERSION_SUNIT = "1.3.1.1"
+
+        VERSIOVERSION_ADCOLONY_AD="4.1.0"
+        VERSION_ADMOB_AD = "18.3.0"
+        VERSION_ADMOB_M_FB = "5.6.1.0"
+        VERSION_ADMOB_M_MOPUB = "5.10.0.0"
+        VERSION_ADMOB_M_UNITYADS = "3.4.2.0"
+        VERSION_ADMOB_M_APPLOVIN = "9.11.4.0"
+
+        VERSION_APPLOVIN_AD = "9.11.4"
+        VERSION_FACEBOOK_AD = "5.6.1"
+        VERSION_FYBER_AD = "7.3.4"
+        VERSION_IRONSOURCE_AD = "6.10.2"
+        VERSION_UNITY_ADS_AD = "3.4.2"
+        VERSION_VUNGLE_AD = "6.4.11"
+        VERSION_MOPUB_AD = "5.10.0"
+        VERSION_MOPUB_M_ADMOB = "18.3.0.3"
+        VERSION_MOPUB_M_FB = "5.6.1.0"
+
+        VERSION_PLAY_SERVICES_LOCATION = "16.0.0"
+        VERSION_GSON = "2.8.1"
+        VERSION_OKHTTP3 = "3.10.0"
+        VERSION_FLURRY = "12.1.0"
+    }
+ ```
+
+2. 新增admob 聚合 adapter依赖
+```
+    implementation "com.google.ads.mediation:facebook:$VERSION_ADMOB_M_FB"
+    implementation("com.google.ads.mediation:mopub:$VERSION_ADMOB_M_MOPUB") {
+        exclude group: 'com.mopub'
+    }
+    implementation "com.google.ads.mediation:unity:$VERSION_ADMOB_M_UNITYADS"
+    implementation "com.google.ads.mediation:applovin:$VERSION_ADMOB_M_APPLOVIN"
+    implementation "com.mopub.mediation:admob:$VERSION_MOPUB_M_ADMOB"
+    implementation "com.mopub.mediation:facebookaudiencenetwork:$VERSION_MOPUB_M_FB"
+```
+
+    
+### 1.2.6.0
 
 2020-03-29
 
