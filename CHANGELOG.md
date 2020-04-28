@@ -1,4 +1,4 @@
-#### 1.4.0-beta
+#### 1.4.0.2
 2020-04-28
 1. 新增接入AppsFlyer SDK
 2. 新增接入Facebook SDK
@@ -8,7 +8,7 @@
 1. 添加接入AppsFlyer 和 Facebook SDK版本为
 ```
     ext {
-        VERSION_SUNIT = "1.3.1.1"
+        VERSION_SUNIT = "1.4.0.2"
 
         VERSIOVERSION_ADCOLONY_AD="4.1.0"
         VERSION_ADMOB_AD = "18.3.0"
