@@ -1,3 +1,66 @@
+#### 1.4.0-beta
+2020-04-28
+1. 新增接入AppsFlyer SDK
+2. 新增接入Facebook SDK
+3. 新增谷歌安装归因来源统计
+
+接入改动(替换 shareit_sdk.gradle 文件):
+1. 添加接入AppsFlyer 和 Facebook SDK版本为
+```
+    ext {
+        VERSION_SUNIT = "1.3.1.1"
+
+        VERSIOVERSION_ADCOLONY_AD="4.1.0"
+        VERSION_ADMOB_AD = "18.3.0"
+        VERSION_ADMOB_M_FB = "5.6.1.0"
+        VERSION_ADMOB_M_MOPUB = "5.10.0.0"
+        VERSION_ADMOB_M_UNITYADS = "3.4.2.0"
+        VERSION_ADMOB_M_APPLOVIN = "9.11.4.0"
+
+        VERSION_APPLOVIN_AD = "9.11.4"
+        VERSION_FACEBOOK_AD = "5.6.1"
+        VERSION_FYBER_AD = "7.3.4"
+        VERSION_IRONSOURCE_AD = "6.10.2"
+        VERSION_UNITY_ADS_AD = "3.4.2"
+        VERSION_VUNGLE_AD = "6.4.11"
+        VERSION_MOPUB_AD = "5.10.0"
+        VERSION_MOPUB_M_ADMOB = "18.3.0.3"
+        VERSION_MOPUB_M_FB = "5.6.1.0"
+
+        VERSION_PLAY_SERVICES_LOCATION = "16.0.0"
+        VERSION_GSON = "2.8.1"
+        VERSION_OKHTTP3 = "3.10.0"
+        VERSION_FLURRY = "12.1.0"
+        <!-- 以下是新增项 -->
+        VERSION_GOOGLE_REFERRER= "1.1.2"
+        VERSION_APPSFLYER= "5.2.0"
+        VERSION_FACEBOOK= "[5,6)"
+    }
+ ```
+ 
+2. 新增ApssFlyer 和 Facebook 依赖
+```
+    //AppsFlyer
+    implementation "com.android.installreferrer:installreferrer:$VERSION_GOOGLE_REFERRER"
+    implementation "com.appsflyer:af-android-sdk:$VERSION_APPSFLYER"
+    //Facebook
+    implementation "com.facebook.android:facebook-android-sdk:$VERSION_FACEBOOK"
+```
+3. 新增manifest里的key
+```
+  <!-- ********************** AppsFlyer Start **************************** -->
+        <meta-data
+            android:name="appsflyer.sdk.DEV_KEY"
+            android:value="Your AppsFlyer DEV_KEY" />
+        <!-- ********************** AppsFlyer End **************************** -->
+
+        <!-- ********************** Facebook Start **************************** -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="fb+Your Facebook appId" />
+           <!-- 注意：必须是fb加上您的Facebook appId,不能只是appId。正确示例 android:value="fb1644475872501583" /> -->
+        <!-- ********************** Facebook End **************************** -->
+```
 
 #### [里程碑版本]1.3.1.1
 2020-04-20

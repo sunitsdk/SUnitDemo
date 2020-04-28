@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.unity3d.ads:unity-ads:3.2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/073c46d9e54a35e21f9a6ab533209d5b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/073c46d9e54a35e21f9a6ab533209d5b/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.unity3d.ads/unity-ads/3.2.0/e2e3b23e1b8793727c87527ef8db37e9563b01cc/unity-ads-3.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.unity3d.ads/unity-ads/3.2.0/979c62200c3b108e86b449ed6088d2ec0c296f3f/unity-ads-3.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

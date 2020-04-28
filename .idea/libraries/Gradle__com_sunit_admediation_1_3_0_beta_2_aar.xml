@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sunit:admediation:1.3.0-beta-2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53d777783221ce2c9905f5cd93294a14/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/53d777783221ce2c9905f5cd93294a14/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sunit/admediation/1.3.0-beta-2/e1cf57988dc072b4f5f8f977a66d60d92c7f04cd/admediation-1.3.0-beta-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.exoplayer:exoplayer:2.10.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df4bd6078cc0cfdff39de958184a0568/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df4bd6078cc0cfdff39de958184a0568/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer/2.10.3/d29764f0d18f30c3b51fa8f6d328fc55261373f1/exoplayer-2.10.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer/2.10.3/d29764f0d18f30c3b51fa8f6d328fc55261373f1/exoplayer-2.10.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
