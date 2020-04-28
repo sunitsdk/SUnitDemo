@@ -1,6 +1,6 @@
 # SUnit SDK(Android)
-* Modified: March 29, 2020
-* SDK Version: 1.2.6.0
+* Modified: 2020-04-28
+* SDK Version: 1.3.1.1
 
 ## Overview
 
