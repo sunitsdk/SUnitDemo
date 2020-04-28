@@ -61,6 +61,11 @@
            <!-- 注意：必须是fb加上您的Facebook appId,不能只是appId。正确示例 android:value="fb1644475872501583" /> -->
         <!-- ********************** Facebook End **************************** -->
 ```
+4. 对于编译时出现 fullBackupContent 相关的错误需要在 AndroidManifest.xml 里添加
+```
+ tools:replace="android:fullBackupContent"
+ android:fullBackupContent="true"
+```
 
 #### [里程碑版本]1.3.1.1
 2020-04-20
