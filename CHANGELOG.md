@@ -1,4 +1,5 @@
-#### 1.4.0.2
+#### 1.4.0-beta
+以下是接入1.4.0-beta版本的diff项，接入1.4.0以下版本的sdk请忽略
 2020-04-28
 1. 新增接入AppsFlyer SDK
 2. 新增接入Facebook SDK
@@ -35,6 +36,7 @@
         VERSION_GOOGLE_REFERRER= "1.1.2"
         VERSION_APPSFLYER= "5.2.0"
         VERSION_FACEBOOK= "[5,6)"
+         <!-- 以上是新增项 -->
     }
  ```
  
@@ -48,7 +50,7 @@
 ```
 3. 新增manifest里的key
 ```
-  <!-- ********************** AppsFlyer Start **************************** -->
+        <!-- ********************** AppsFlyer Start **************************** -->
         <meta-data
             android:name="appsflyer.sdk.DEV_KEY"
             android:value="Your AppsFlyer DEV_KEY" />
