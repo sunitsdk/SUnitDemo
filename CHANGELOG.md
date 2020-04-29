@@ -1,5 +1,6 @@
 #### 1.4.0-beta
 以下是接入1.4.0-beta版本的diff项，接入1.4.0以下版本的sdk请忽略
+
 2020-04-28
 1. 新增接入AppsFlyer SDK
 2. 新增接入Facebook SDK
