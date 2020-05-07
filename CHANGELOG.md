@@ -4,7 +4,7 @@
 2. 升级广告源版本: admob facebook mopub applovin unityAds
 3. 增加 admob 聚合 applovin, admob 聚合 unityAds
 
-接入改动(替换 shareit_sdk.gradle 文件):
+接入改动(替换 [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/8c0068eb2b/app/shareit_sdk.gradle) 文件):
 1. 更改广告源版本为
 ```
     ext {
