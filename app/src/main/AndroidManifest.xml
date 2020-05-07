@@ -4,8 +4,7 @@
     package="com.shareit.sunit">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28"
-        tools:replace="android:maxSdkVersion"/>
+        tools:remove="android:maxSdkVersion"/>
 
     <application
         android:allowBackup="true"

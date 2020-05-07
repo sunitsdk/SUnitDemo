@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sunit:aggregation-android:1.4.0.4-beta-3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f52abfcf4bca50f94af768e8d834ceaf/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f52abfcf4bca50f94af768e8d834ceaf/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sunit/aggregation-android/1.4.0.4-beta-3/fd59b0bd03558e971301e6b1f582fac255f48d6f/aggregation-android-1.4.0.4-beta-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
