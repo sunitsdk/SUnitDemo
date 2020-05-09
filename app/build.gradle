@@ -17,6 +17,8 @@ android {
 
         //SHAREit begin
         multiDexEnabled true
+        resValue "string", "account_type", "${applicationId}.type"
+        resValue "string", "content_authority", "${applicationId}.provider"
         //SHAREit end
     }
 
