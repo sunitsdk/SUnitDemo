@@ -67,6 +67,21 @@
  android:fullBackupContent="true"
 ```
 
+5. SD卡权限申请requestStoragePermissions() <br/>
+在启动app时主动申请sd卡权限(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
+
+6. 在build.gradle中applicationId下方增加account_type、content_authority(不添加会导致安装包冲突问题)<br/>
+```
+defaultConfig {
+        applicationId  “com.xx.xx”
+        //SHAREit begin
+        multiDexEnabled true
+        resValue "string", "account_type", "${applicationId}.type"
+        resValue "string", "content_authority", "${applicationId}.provider"
+        //SHAREit end
+}
+```
+
 #### [里程碑版本]1.3.1.1
 2020-04-20
 1. 升级 androidx 版本
