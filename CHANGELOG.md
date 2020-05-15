@@ -68,7 +68,7 @@
 ```
 
 5. SD卡权限申请requestStoragePermissions() <br/>
-在启动app时主动申请sd卡权限(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
+在启动app时主动调用此方法，不需要做权限判断(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
 
 6. 在build.gradle中applicationId下方增加account_type、content_authority(不添加会导致安装包冲突问题)<br/>
 ```
