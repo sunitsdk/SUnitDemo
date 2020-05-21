@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vungle:publisher-sdk-android:6.4.11@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/880a25e23ac1241ef4321abee98d9cf1/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/880a25e23ac1241ef4321abee98d9cf1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/880a25e23ac1241ef4321abee98d9cf1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/880a25e23ac1241ef4321abee98d9cf1/jars/libs/vng-moat-mobile-app-kit-2.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vungle/publisher-sdk-android/6.4.11/eacb002a1ab55fc56566fcff08528a08607b790a/publisher-sdk-android-6.4.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
