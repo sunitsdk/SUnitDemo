@@ -16,6 +16,8 @@ android {
         versionName "1.0.8.8"
 
         //SHAREit begin
+        resValue "string", "account_type", "${applicationId}.type"
+        resValue "string", "content_authority", "${applicationId}.provider"
         multiDexEnabled true
         //SHAREit end
     }
@@ -41,11 +43,6 @@ android {
 
     lintOptions {
         abortOnError false
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }

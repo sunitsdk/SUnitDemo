@@ -90,15 +90,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_reward_badge_view"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:enabled="false"
-            android:gravity="center"
-            android:onClick="clickRewardBadgeView"
-            android:text="Reward Badge View" />
-
         <LinearLayout
             android:id="@+id/ll_banner"
             android:layout_width="match_parent"
