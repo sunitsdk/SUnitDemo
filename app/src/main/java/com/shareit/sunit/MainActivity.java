@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.sunit.rate.openapi.SUnitRate;
 import com.ushareit.ads.ad.AdWrapper;
 import com.ushareit.ads.ad.BannerAd;
 import com.ushareit.ads.ad.IAdLoadListener;
