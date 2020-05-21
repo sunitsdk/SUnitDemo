@@ -1,5 +1,5 @@
 
-#### [重要]1.5.1.0
+### [重要]1.5.1.0
 2020-05-12
 1. 在第一个 Activity#onCreate 时主动申请sd卡权限(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
     * 原生：SHAREitAggregation.requestStoragePermissions();
@@ -18,7 +18,7 @@
     ```
 
 
-#### [里程碑版本]1.3.1.1
+### [里程碑版本]1.3.1.1
 2020-04-20
 1. 升级 androidx 版本
 2. 升级广告源版本: admob facebook mopub applovin unityAds
