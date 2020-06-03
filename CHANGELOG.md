@@ -48,7 +48,7 @@
 2. 新增Adjust SDK依赖
 
 ```
-	//Adjust sdk
+    //Adjust sdk
     implementation "com.adjust.sdk:adjust-android:$VERSION_ADJUST"
     implementation "com.google.android.gms:play-services-ads-identifier:$VERSION_PLAY_SERVICES_ADS"
     //如果已存在下方依赖 不需要重复引入
