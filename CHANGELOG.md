@@ -39,9 +39,9 @@
         VERSION_FACEBOOK= "[5,6)"
         <!-- 以下是新增项 接入Adjust SDK-->
         VERSION_ADJUST="4.22.0"
-    	  VERSION_PLAY_SERVICES_ADS="17.0.0"
-    	  //如果已存在下方依赖版本号，不需重复引入
-    	  VERSION_GOOGLE_REFERRER= "1.1.2"
+    	VERSION_PLAY_SERVICES_ADS="17.0.0"
+    	//如果已存在下方依赖版本号，不需重复引入
+    	VERSION_GOOGLE_REFERRER= "1.1.2"
     }
 ```
 
