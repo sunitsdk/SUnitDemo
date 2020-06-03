@@ -36,13 +36,6 @@
             android:value="ADMOB_APP_ID" /> -->
 
         <meta-data
-            android:name="applovin.sdk.key"
-            android:value="U08_TRT-FW25APG_74AJ1DIrsogJtAkHynf5KgJPzhQwvdyeZ3C6UkclPah0MesOF6ZZMF0B1FBEOOnmnHIdc2" />
-        <!-- <meta-data
-            android:name="applovin.sdk.key"
-            android:value="APPLOVIN_SDK_KEY" /> -->
-
-        <meta-data
             android:name="com.sunit.channel"
             android:value="SHAREit" />
         <!-- <meta-data
