@@ -1,12 +1,18 @@
 
+### 1.6.2.0
+2020-6-4
+
+升级到1.6.2.0不需要特殊的步骤
+
 ### [重要]1.5.1.0
+
 2020-05-12
 1. 在第一个 Activity#onCreate 时主动申请sd卡权限(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
     * 原生：SHAREitAggregation.requestStoragePermissions();
     * Unity：SHAREitSDK.SHAREitSDK.requestStoragePermissions();
 2. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master/app/shareit_sdk.gradle) 文件
 3. 在build.gradle中applicationId下方增加account_type、content_authority
-    ```
+```
     defaultConfig {
         applicationId  “com.xx.xx”
         //SHAREit begin
@@ -15,10 +21,11 @@
         multiDexEnabled true
         //SHAREit end
     }
-    ```
+```
 
 
 ### [里程碑版本]1.3.1.1
+
 2020-04-20
 1. 升级 androidx 版本
 2. 升级广告源版本: admob facebook mopub applovin unityAds
@@ -127,7 +134,7 @@
 
 2020-02-11
 
-升级到1.1.1.1不需要特殊的步骤
+升级到1.1.1.3不需要特殊的步骤
 
 ### 1.1.1.1
 
