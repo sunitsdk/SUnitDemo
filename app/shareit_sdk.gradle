@@ -1,5 +1,5 @@
 ext {
-    VERSION_SUNIT = "1.5.1.0"
+    VERSION_SUNIT = "1.7.0-beta-5"
 
     VERSION_ADCOLONY_AD="4.1.0"
     VERSION_ADMOB_AD = "18.3.0"
@@ -22,6 +22,11 @@ ext {
     VERSION_GSON = "2.8.1"
     VERSION_OKHTTP3 = "3.10.0"
     VERSION_FLURRY = "12.1.0"
+    VERSION_GOOGLE_REFERRER= "1.1.2"
+    VERSION_APPSFLYER= "5.2.0"
+    VERSION_FACEBOOK= "[5,6)"
+    VERSION_ADJUST="4.22.0"
+    VERSION_PLAY_SERVICES_ADS="17.0.0"
 }
 
 android{
@@ -120,4 +125,13 @@ dependencies {
 
     // Required for Flurry Analytics integration
     implementation "com.flurry.android:analytics:$VERSION_FLURRY"
+    //Google referrer api
+    implementation "com.android.installreferrer:installreferrer:$VERSION_GOOGLE_REFERRER"
+    //AppsFlyer
+    implementation "com.appsflyer:af-android-sdk:$VERSION_APPSFLYER"
+    //Facebook
+    implementation "com.facebook.android:facebook-android-sdk:$VERSION_FACEBOOK"
+    //Adjust sdk
+    implementation "com.adjust.sdk:adjust-android:$VERSION_ADJUST"
+    implementation "com.google.android.gms:play-services-ads-identifier:$VERSION_PLAY_SERVICES_ADS"
 }
