@@ -10,7 +10,7 @@
     ext {
         VERSION_SUNIT = "1.4.0.5"
 
-        VERSIOVERSION_ADCOLONY_AD="4.1.0"
+        VERSION_ADCOLONY_AD="4.1.0"
         VERSION_ADMOB_AD = "18.3.0"
         VERSION_ADMOB_M_FB = "5.6.1.0"
         VERSION_ADMOB_M_MOPUB = "5.10.0.0"
@@ -94,7 +94,7 @@ defaultConfig {
     ext {
         VERSION_SUNIT = "1.3.1.1"
 
-        VERSIOVERSION_ADCOLONY_AD="4.1.0"
+        VERSION_ADCOLONY_AD="4.1.0"
         VERSION_ADMOB_AD = "18.3.0"
         VERSION_ADMOB_M_FB = "5.6.1.0"
         VERSION_ADMOB_M_MOPUB = "5.10.0.0"
