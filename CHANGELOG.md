@@ -11,7 +11,7 @@
 
 ```
     ext {
-        VERSION_SUNIT = "1.7.0-beta-5"
+        VERSION_SUNIT = "1.7.0.1"
 
         VERSION_ADCOLONY_AD="4.1.0"
         VERSION_ADMOB_AD = "18.3.0"
