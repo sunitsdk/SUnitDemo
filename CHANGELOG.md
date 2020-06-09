@@ -7,10 +7,11 @@
 
 接入改动(替换 shareit_sdk.gradle 文件):
 
-1. 添加接入Adjust SDK版本为
+1. 添加接入Adjust 的SDK版本为
 
 ```
     ext {
+        //版本改为1.7.0.1 如果接入adjust sdk，测试阶段需使用 VERSION_SUNIT = "1.7.0.1-sandbox-env" 使用adjust的sandbox环境
         VERSION_SUNIT = "1.7.0.1"
 
         VERSION_ADCOLONY_AD="4.1.0"
