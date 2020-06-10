@@ -12,6 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        tools:replace="android:fullBackupContent"
+        android:fullBackupContent="true"
         android:theme="@style/AppTheme">
         <!--SHAREit begin-->
         <meta-data
@@ -45,6 +47,7 @@
 
         <activity
             android:name="com.shareit.sunit.MainActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
