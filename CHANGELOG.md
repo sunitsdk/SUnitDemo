@@ -2,10 +2,8 @@
 
 2020-06-10
 
-1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_180/app/shareit_sdk.gradle)
+使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_180/app/shareit_sdk.gradle)
 
-
-```
 ### 1.6.2.1
 2020-6-4
 
