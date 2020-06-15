@@ -4,6 +4,19 @@
 
 升级到1.6.2.1不需要特殊的步骤
 
+如果需要接入评分功能，请按照以下方式接入
+
+```
+ SUnitRate.showRateDialog(context, new SUnitRate.ShowRateErrorListener() {
+            @Override
+            public void onFail(int showRateResultCode, String msg) {
+                Log.e("MainActivity", showRateResultCode + ": " + msg);
+            }
+        });
+```
+
+其中第一个参数 context 表示当前所在的上下文Context,第二个参数是回调展示结果，在回调接口里有一个onFail方法，onFail方法的两个参数分别表示错误码和错误信息。传入的context 不能为空，否则会回调onFail方法。如果当前无网络连接也会回调onFail方法，不能成功展示评分框。
+
 ### [重要]1.5.1.3
 
 2020-05-12
