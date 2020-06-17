@@ -4,18 +4,7 @@
 
 升级到1.6.2.1不需要特殊的步骤
 
-如果需要接入评分功能，请按照以下方式接入
-
-```
- SUnitRate.showRateDialog(context, new SUnitRate.ShowRateErrorListener() {
-            @Override
-            public void onFail(int showRateResultCode, String msg) {
-                Log.e("MainActivity", showRateResultCode + ": " + msg);
-            }
-        });
-```
-
-其中第一个参数 context 表示当前所在的上下文Context,第二个参数是回调展示结果，在回调接口里有一个onFail方法，onFail方法的两个参数分别表示错误码和错误信息。传入的context 不能为空，否则会回调onFail方法。如果当前无网络连接也会回调onFail方法，即不能成功展示评分框。
+新增[评分功能（可选)](https://github.com/sunitsdk/SUnitDemo/wiki/%E8%AF%84%E5%88%86%E5%BC%95%E5%AF%BC%EF%BC%88%E5%8F%AF%E9%80%89%E5%8A%9F%E8%83%BD)
 
 ### [重要]1.5.1.3
 
