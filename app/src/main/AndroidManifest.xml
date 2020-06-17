@@ -14,8 +14,6 @@
         tools:replace="android:fullBackupContent"
         android:fullBackupContent ="true"
         android:supportsRtl="true"
-        tools:replace="android:fullBackupContent"
-        android:fullBackupContent="true"
         android:theme="@style/AppTheme">
         <!--SHAREit begin-->
         <meta-data
