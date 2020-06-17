@@ -1,5 +1,5 @@
 ext {
-    VERSION_SUNIT = "1.8.1"
+    VERSION_SUNIT = "1.8.0.1"
 }
 
 android{
@@ -13,11 +13,27 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        maven {
+            url "https://adcolony.bintray.com/AdColony"
+        }
+
+        maven {
+            url "https://dl.bintray.com/ironsource-mobile/android-sdk"
+        }
+
+        maven {
+            name "Fyber's maven repo"
+            url "https://fyber.bintray.com/marketplace"
+        }
+
         maven {
             name "SUnit's maven repo"
             url "https://dl.bintray.com/sunitsdk/SUnit"
         }
-
+        maven {
+            url "https://dl.bintray.com/shareit-pay/PaySDK"
+        }
     }
 }
 
