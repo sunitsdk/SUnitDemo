@@ -3,7 +3,7 @@
 2020-06-17
 
 FEATURE:
-- 升级支付版本.
+- 升级支付SDK版本.
 - 升级 Facebook Audience Network SDK 版本到5.9.0
 
 CHANGES:
