@@ -9,7 +9,6 @@ FEATURE:
 CHANGES:
 1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_180/app/shareit_sdk.gradle)
 2. gameLevelEnd 增加是否过关参数
-3. Bug fix.
 
 ### 1.6.2.1
 2020-6-4
