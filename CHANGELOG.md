@@ -4,7 +4,7 @@
 
 升级到1.6.2.1不需要特殊的步骤
 
-新增[评分功能（可选)](https://github.com/sunitsdk/SUnitDemo/wiki/%E8%AF%84%E5%88%86%E5%BC%95%E5%AF%BC%EF%BC%88%E5%8F%AF%E9%80%89%E5%8A%9F%E8%83%BD%29)
+新增[评分引导功能](https://github.com/sunitsdk/SUnitDemo/wiki/%E8%AF%84%E5%88%86%E5%BC%95%E5%AF%BC%EF%BC%88%E5%8F%AF%E9%80%89%E5%8A%9F%E8%83%BD%29)
 
 ### [重要]1.5.1.3
 
