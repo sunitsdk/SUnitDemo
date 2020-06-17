@@ -4,7 +4,7 @@
 
 FEATURE:
 - 升级支付版本.
-- 升级 FAN sdk 版本到5.9.0
+- 升级 Facebook Audience Network SDK 版本到5.9.0
 
 CHANGES:
 1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_180/app/shareit_sdk.gradle)
