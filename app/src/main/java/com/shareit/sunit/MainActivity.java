@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.ushareit.ads.ad.AdWrapper;
 import com.ushareit.ads.ad.BannerAd;
 import com.ushareit.ads.ad.IAdLoadListener;
+import com.ushareit.ads.ad.IAdShowListener;
 import com.ushareit.ads.ad.InterstitialAd;
 import com.ushareit.ads.ad.RewardedAd;
 import com.ushareit.ads.base.AdException;
@@ -41,10 +42,8 @@ public class MainActivity extends Activity {
         InterstitialAd.loadAd(INTERSTITIAL_UNIT_ID);
         //load rewarded ad
         RewardedAd.loadAd(REWARD_UNIT_ID);
-        //preload banner ad
-        BannerAd.preloadBannerAd(BANNER_UNIT_ID);
 
-        //在启动app时,主动调用此方法(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
+        //The method contains id initialization function, you must use it
         SHAREitAggregation.requestStoragePermissions(this);
     }
 
@@ -56,7 +55,7 @@ public class MainActivity extends Activity {
 
     public void showInterstitial(View view) {
         showMsg("showInterstitial");
-        //如下方法适用于接入方未管理广告缓存的场景
+        //SDK manages the Ad cache
         if (InterstitialAd.isAdReady(INTERSTITIAL_UNIT_ID, ShareItAd.HOME))
             InterstitialAd.showAd(INTERSTITIAL_UNIT_ID, null);
         else {
@@ -68,12 +67,12 @@ public class MainActivity extends Activity {
     public void loadAndShowItl(View view) {
         showMsg("loadAndShowItl");
 
-        //如下方法适用于接入方自己管理了广告缓存的场景
+        //You manage the cache yourself
         InterstitialAd.loadAd(INTERSTITIAL_UNIT_ID, new IAdLoadListener() {
             @Override
             public void onAdLoaded(String unitId, AdWrapper adWrapper) {
                 showMsg("load InterstitialAd Succeed, Will show it automatic");
-                InterstitialAd.showAd(adWrapper, null);
+                InterstitialAd.showAd(adWrapper, ShareItAd.HOME, null);
             }
 
             @Override
@@ -86,7 +85,7 @@ public class MainActivity extends Activity {
 
     public void showReward(View view) {
         showMsg("showReward");
-        //如下方法适用于接入方未管理广告缓存的场景
+        //SDK manages the Ad cache
         if (RewardedAd.isAdReady(REWARD_UNIT_ID, ShareItAd.HOME, PORTAL_REWARD_BTN))
             RewardedAd.showAd(REWARD_UNIT_ID, null);
         else {
@@ -102,7 +101,32 @@ public class MainActivity extends Activity {
             @Override
             public void onAdLoaded(String unitId, AdWrapper adWrapper) {
                 showMsg("load RewardedAd Succeed, Will show it automatic");
-                RewardedAd.showAd(adWrapper, null);
+                RewardedAd.showAd(adWrapper, ShareItAd.HOME, PORTAL_REWARD_BTN, new IAdShowListener() {
+                    @Override
+                    public void onAdShowFailed(String s, AdException e) {
+
+                    }
+
+                    @Override
+                    public void onAdImpression(String s, String s1) {
+
+                    }
+
+                    @Override
+                    public void onAdClicked(String s, String s1) {
+
+                    }
+
+                    @Override
+                    public void onAdRewarded(String s, String s1) {
+
+                    }
+
+                    @Override
+                    public void onAdClosed(String s, String s1, boolean b) {
+
+                    }
+                });
             }
 
             @Override
@@ -113,10 +137,10 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onResume() {//此方法页面从不可见到可见会调用
+    protected void onResume() {
         super.onResume();
-        if (mRewardBtn.isEnabled())//如果激励视频按钮可见可以点击
-            RewardedAd.showRewardedBadgeView(ShareItAd.HOME, PORTAL_REWARD_BTN);//上报激励视频入口
+        if (mRewardBtn.isEnabled()&& mRewardBtn.getVisibility() == View.VISIBLE)//Button can click and visible
+            RewardedAd.showRewardedBadgeView(ShareItAd.HOME, PORTAL_REWARD_BTN);//report rewarded button
     }
 
     private void showMsg(String msg) {
