@@ -1,13 +1,13 @@
-### 1.8.0.1
+### 1.8.0.3
 
-2020-06-17
+2020-06-19
 
 FEATURE:
 - 升级支付SDK版本.
 - 升级 Facebook Audience Network SDK 版本到5.9.0
 
 CHANGES:
-1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_180/app/shareit_sdk.gradle)
+1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master/app/shareit_sdk.gradle)
 2. gameLevelEnd 增加是否过关参数
 
 ### 1.6.2.1
