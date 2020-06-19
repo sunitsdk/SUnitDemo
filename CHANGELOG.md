@@ -7,7 +7,7 @@ FEATURE:
 - 升级 Facebook Audience Network SDK 版本到5.9.0
 
 CHANGES:
-1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master/app/shareit_sdk.gradle)
+1. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_181/app/shareit_sdk.gradle)
 2. gameLevelEnd 增加是否过关参数
 
 ### 1.6.2.1
