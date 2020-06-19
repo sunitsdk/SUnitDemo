@@ -1,5 +1,5 @@
 ext {
-    VERSION_SUNIT = "1.8.0.1"
+    VERSION_SUNIT = "1.8.1.2"
 }
 
 android{
@@ -31,6 +31,7 @@ allprojects {
             name "SUnit's maven repo"
             url "https://dl.bintray.com/sunitsdk/SUnit"
         }
+
         maven {
             url "https://dl.bintray.com/shareit-pay/PaySDK"
         }
