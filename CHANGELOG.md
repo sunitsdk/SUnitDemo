@@ -23,7 +23,7 @@ CHANGES:
 1. 在第一个 Activity#onCreate 时主动申请sd卡权限(方法内含有Id初始化相关策略，即使接入方自己申请了权限也需要调用此方法)
     * 原生：SHAREitAggregation.requestStoragePermissions();
     * Unity：SHAREitSDK.SHAREitSDK.requestStoragePermissions();
-2. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master/app/shareit_sdk.gradle) 文件
+2. 使用最新  [shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_150/app/shareit_sdk.gradle) 文件
 3. 在build.gradle中applicationId下方增加account_type、content_authority
 ```
     defaultConfig {
