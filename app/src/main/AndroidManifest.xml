@@ -59,13 +59,5 @@
         <activity android:name="com.shareit.sunit.TestPayActivity"/>
         <activity android:name="com.shareit.sunit.TestGameActivity" />
 
-        <!--Fix Manifest merger failed -->
-        <activity
-            android:name="com.facebook.ads.AudienceNetworkActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:hardwareAccelerated="true"
-            android:multiprocess="true"
-            tools:replace="android:configChanges" />
-
     </application>
 </manifest>
