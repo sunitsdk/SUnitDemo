@@ -98,4 +98,26 @@
         android:textSize="13sp"
         android:layout_margin="3dp"
         android:id="@+id/loginInfoTv"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:textSize="18sp"
+        android:text="Rate Function"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="2dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:text="Show Rate"
+            android:onClick="onShowRateClick"
+            android:textSize="13sp"/>
+    </LinearLayout>
 </LinearLayout>

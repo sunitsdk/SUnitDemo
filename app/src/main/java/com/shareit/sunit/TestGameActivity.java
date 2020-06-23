@@ -9,8 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.ushareit.ads.ad.RewardedAd;
-import com.ushareit.ads.openapi.ShareItAd;
+import com.sunit.rate.openapi.SUnitRate;
 import com.ushareit.aggregationsdk.SHAREitAggregation;
 import com.ushareit.logindialog.utils.GameLoginHelper;
 
@@ -50,7 +49,9 @@ public class TestGameActivity extends Activity {
     }
 
     public void onGameLevelEndDataUpload(View view) {
-        SHAREitAggregation.gameLevelEnd("1");
+        //SHAREitAggregation.gameLevelEnd("1");
+        //"1"表示当前关卡， 同时增加是否过关参数 表示用户是否成功完成当前关卡： true 表示成功，false 表示失败
+        SHAREitAggregation.gameLevelEnd("1", true);
     }
 
     public void onLoginInClick(View view) {
@@ -87,5 +88,21 @@ public class TestGameActivity extends Activity {
             Log.d(TAG, "You haven't logged in.");
             Toast.makeText(this, "You haven't logged in.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void onShowRateClick(View view) {
+        SUnitRate.showRateDialog(this, new SUnitRate.ShowRateErrorListener(){
+            @Override
+            public void onFail(int resultCode, String msg) {
+                //the context param is null
+                if(resultCode == 100){
+                    Log.e(TAG, msg);
+                }
+                //no network connect
+                else if(resultCode == 101){
+                    Log.e(TAG, msg);
+                }
+            }
+        });
     }
 }
