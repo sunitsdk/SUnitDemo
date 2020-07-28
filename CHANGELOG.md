@@ -1,3 +1,15 @@
+### 2.0.1.0
+
+2020-07-28
+
+FEATURE:
+- 升级支付SDK版本
+- 优化广告加载模型, 提升广告加载效率
+- 优化内置下载器逻辑, 有效提升分发效率
+
+CHANGES:
+1. 需关注 [NoClassDefFoundError com.ushareit.aggregationsdk.InitializeProvider](https://github.com/sunitsdk/SUnitDemo/wiki/SDK%E5%BC%95%E5%85%A5#11-%E5%A2%9E%E5%8A%A0-multidexkeep-%E9%85%8D%E7%BD%AE)
+
 ### 1.8.1.3
 
 2020-06-19
