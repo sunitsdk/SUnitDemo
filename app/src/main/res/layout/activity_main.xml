@@ -13,15 +13,16 @@
         <LinearLayout
             android:id="@+id/ll_interstitial"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_itl_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="InterstitialAd"
-                android:textSize="24sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -53,16 +54,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_rwd_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="RewardedAd"
-                android:textSize="24sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,15 +94,16 @@
         <LinearLayout
             android:id="@+id/ll_banner"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_banner_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Banner Ad"
-                android:textSize="24sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -158,9 +160,38 @@
             android:background="#1888"
             android:hint="Show Current Status"
             android:maxLines="3"
-            android:minHeight="132dp"
+            android:minHeight="50dp"
             android:padding="16dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_dimens_20dp">
+
+            <Button
+                android:id="@+id/promote_video_show_button"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="toShowPromoteVideo"
+                android:text="Show Promote Video"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/promote_video_hide_button"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="toHidePromoteVideo"
+                android:text="Hide Promote Video"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
