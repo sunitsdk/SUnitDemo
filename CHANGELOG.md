@@ -1,3 +1,15 @@
+### 2.1.0.3-beta
+
+2020-07-30
+
+FEATURE:
+- 支持小视频推广功能
+- 支持推广弹窗功能
+- Bug fix
+
+CHANGES：
+[小视频推广](https://github.com/sunitsdk/SUnitDemo/wiki/%E6%8E%A8%E5%B9%BF%E6%A8%A1%E5%9D%97#%E5%B0%8F%E8%A7%86%E9%A2%91%E6%8E%A8%E5%B9%BF)相关接口
+
 ### 2.0.1.0
 
 2020-07-28
