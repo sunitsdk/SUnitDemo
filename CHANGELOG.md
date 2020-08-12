@@ -1,3 +1,12 @@
+### 2.1.1.0
+
+2020-08-11
+
+FEATURE:
+- 增加[小视频推广位](https://github.com/sunitsdk/SUnitUnityDemo/wiki/%E6%8E%A8%E5%B9%BF%E6%A8%A1%E5%9D%97), 由CP自主调用
+- 新增对外暴露的云控接口, 调用方可以通过 SHAREitAggregation#getXXConfig 来获取对应的云控值, 云控值的key-value需要由我方运营配置
+- 优化了数据埋点
+
 ### 2.0.1.0
 
 2020-07-28
