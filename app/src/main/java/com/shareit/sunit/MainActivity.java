@@ -170,4 +170,16 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, TestPayActivity.class);
         startActivity(intent);
     }
+
+    public void toShowPromoteVideo(View view) {
+        String scene = "main_page";//The real show scene of promote video.
+        int showX = 0;//show x in screen
+        int showY = 100;//show y in screen
+        if (SHAREitAggregation.canShowVideo(scene))
+            SHAREitAggregation.showVideoDialog(showX, showY, scene, false);
+    }
+
+    public void toHidePromoteVideo(View view) {
+        SHAREitAggregation.hideVideoDialog();
+    }
 }
