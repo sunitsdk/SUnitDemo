@@ -38,7 +38,7 @@ public class TestGameActivity extends Activity {
             HashMap<String, String> params = new LinkedHashMap<String, String>();
             params.put("para1", "val1");
             params.put("para2", "val2");
-            SHAREitAggregation.onEvent(this,"TEST_EVENT_NAME", params);
+            SHAREitAggregation.onEvent(this, "TEST_EVENT_NAME", params);
         } catch (Exception e) {
 
         }
@@ -91,18 +91,24 @@ public class TestGameActivity extends Activity {
     }
 
     public void onShowRateClick(View view) {
-        SUnitRate.showRateDialog(this, new SUnitRate.ShowRateErrorListener(){
-            @Override
-            public void onFail(int resultCode, String msg) {
-                //the context param is null
-                if(resultCode == 100){
-                    Log.e(TAG, msg);
-                }
-                //no network connect
-                else if(resultCode == 101){
-                    Log.e(TAG, msg);
-                }
-            }
-        });
+        SHAREitAggregation.showRateDialog(this,
+                new SUnitRate.ShowRateErrorListener() {
+                    @Override
+                    public void onFail(int resultCode, String msg) {
+                        //the context param is null
+                        if (resultCode == 100) {
+                            Log.e(TAG, msg);
+                        }
+                        //no network connect
+                        else if (resultCode == 101) {
+                            Log.e(TAG, msg);
+                        }
+                    }
+                }, new SUnitRate.RateSuccessListener() {
+                    @Override
+                    public void onRateSuccess() {
+
+                    }
+                });
     }
 }
