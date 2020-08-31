@@ -1,5 +1,5 @@
 ext {
-    VERSION_SUNIT = "2.1.1.0"
+    VERSION_SUNIT = "2.1.2.1"
 }
 
 android{

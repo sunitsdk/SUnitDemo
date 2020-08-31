@@ -45,6 +45,8 @@ public class MainActivity extends Activity {
 
         //The method contains id initialization function, you must use it
         SHAREitAggregation.requestStoragePermissions(this);
+
+        initCloudConfig();
     }
 
     private void initView() {
@@ -139,7 +141,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (mRewardBtn.isEnabled()&& mRewardBtn.getVisibility() == View.VISIBLE)//Button can click and visible
+        if (mRewardBtn.isEnabled() && mRewardBtn.getVisibility() == View.VISIBLE)//Button can click and visible
             RewardedAd.showRewardedBadgeView(ShareItAd.HOME, PORTAL_REWARD_BTN);//report rewarded button
     }
 
@@ -181,5 +183,14 @@ public class MainActivity extends Activity {
 
     public void toHidePromoteVideo(View view) {
         SHAREitAggregation.hideVideoDialog();
+    }
+
+    private void initCloudConfig() {
+        String testKey = "key_interstitial_show_enable";//your key
+        boolean booleanConfig = SHAREitAggregation.getBooleanConfig(testKey, false, true);//sdk cloud service return value.
+        //other type sample
+        String stringConfig = SHAREitAggregation.getStringConfig(testKey, "", true);
+        int intConfig = SHAREitAggregation.getIntConfig(testKey, 0, true);
+        long longConfig = SHAREitAggregation.getLongConfig(testKey, 0L, true);
     }
 }
