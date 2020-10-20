@@ -174,15 +174,17 @@ public class MainActivity extends Activity {
     }
 
     public void toShowPromoteVideo(View view) {
-        String scene = "main_page";//The real show scene of promote video.
-        int showX = 0;//show x in screen
-        int showY = 100;//show y in screen
-        if (SHAREitAggregation.canShowVideo(scene))
-            SHAREitAggregation.showVideoDialog(showX, showY, scene, false);
+        //From v2.3.0.0，need not invoke these methods yourself.
+//        String scene = "main_page";//The real show scene of promote video.
+//        int showX = 0;//show x in screen
+//        int showY = 100;//show y in screen
+//        if (SHAREitAggregation.canShowVideo(scene))
+//            SHAREitAggregation.showVideoDialog(showX, showY, scene, false);
     }
 
     public void toHidePromoteVideo(View view) {
-        SHAREitAggregation.hideVideoDialog();
+        //From v2.3.0.0，need not invoke this method yourself.
+//        SHAREitAggregation.hideVideoDialog();
     }
 
     private void initCloudConfig() {
