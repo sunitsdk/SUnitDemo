@@ -16,8 +16,6 @@
 ```
 //原生方法：
 SHAREitAggregation.showVideoDialog(showX, showY, scene, isMute);   
-//Unity方法：
-shareitSDK.showVideoDialog(showX, showY, scene, isMute);
 ```
 
 ### 2.1.2.1
