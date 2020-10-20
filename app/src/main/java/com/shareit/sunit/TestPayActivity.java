@@ -23,10 +23,10 @@ import com.shareit.sunit.HttpHelper;
 import com.shareit.sunit.HttpResponse;
 import com.shareit.sunit.R;
 import com.shareit.sunit.TokenBean;
-import com.ushareit.paysdk.pay.entry.SPBuildType;
-import com.ushareit.paysdk.pay.entry.SPMerchantParam;
-import com.ushareit.paysdk.pay.entry.SPPayCallback;
-import com.ushareit.paysdk.pay.entry.SPPayService;
+import com.ushareit.ift.purchase.entry.SPBuildType;
+import com.ushareit.ift.purchase.entry.SPMerchantParam;
+import com.ushareit.ift.purchase.entry.SPPurchaseListener;
+import com.ushareit.ift.purchase.entry.SPPurchaseService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -173,7 +173,7 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(mSpinnerData != null && position < mSpinnerData.size())
-                    SPPayService.setBuildType(buildTypeMap.get(mSpinnerData.get(position)));
+                    SPPurchaseService.setBuildType(buildTypeMap.get(mSpinnerData.get(position)));
             }
 
             @Override
@@ -295,9 +295,9 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
             return;
         }
 
-        SPPayCallback mPayCallback = new SPPayCallback() {
+        SPPurchaseListener mPayCallback = new SPPurchaseListener() {
             @Override
-            public void onResult(int code, String orderId, String message, String reference) {
+            public void onPurchaseResponse(int code, String orderId, String message, String reference) {
                 Log.d(TAG, "pay callback: [code=" + code + " orderId=" + orderId
                         + " message=" + message + " " + reference);
                 try {
@@ -323,8 +323,8 @@ public class TestPayActivity extends Activity implements View.OnClickListener {
             }
         };
 
-        SPPayService payService = new SPPayService();
-        payService.startPayActivity(this, merchantParam, mPayCallback);
+        SPPurchaseService payService = new SPPurchaseService();
+        payService.purchase(this, merchantParam, mPayCallback);
     }
 
     private void initEditText(EditText editText, String key) {
