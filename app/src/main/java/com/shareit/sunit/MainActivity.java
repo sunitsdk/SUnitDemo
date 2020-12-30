@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
     private static final String BANNER_UNIT_ID = "1014yOdnGC";
 
     private static final String PORTAL_REWARD_BTN = "reward_btn";
+    private static final String HOME_SCENE = "home";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class MainActivity extends Activity {
     public void showInterstitial(View view) {
         showMsg("showInterstitial");
         //SDK manages the Ad cache
-        if (InterstitialAd.isAdReady(INTERSTITIAL_UNIT_ID, "home"))
+        if (InterstitialAd.isAdReady(INTERSTITIAL_UNIT_ID, HOME_SCENE))
             InterstitialAd.showAd(INTERSTITIAL_UNIT_ID, null);
         else {
             showMsg("Interstitial AD not ready");
@@ -74,7 +75,7 @@ public class MainActivity extends Activity {
             @Override
             public void onAdLoaded(String unitId, AdWrapper adWrapper) {
                 showMsg("load InterstitialAd Succeed, Will show it automatic");
-                InterstitialAd.showAd(adWrapper, "home", null);
+                InterstitialAd.showAd(adWrapper, HOME_SCENE, null);
             }
 
             @Override
@@ -88,7 +89,7 @@ public class MainActivity extends Activity {
     public void showReward(View view) {
         showMsg("showReward");
         //SDK manages the Ad cache
-        if (RewardedAd.isAdReady(REWARD_UNIT_ID, "home", PORTAL_REWARD_BTN))
+        if (RewardedAd.isAdReady(REWARD_UNIT_ID, HOME_SCENE, PORTAL_REWARD_BTN))
             RewardedAd.showAd(REWARD_UNIT_ID, null);
         else {
             showMsg("Rewarded AD not ready");
@@ -103,7 +104,7 @@ public class MainActivity extends Activity {
             @Override
             public void onAdLoaded(String unitId, AdWrapper adWrapper) {
                 showMsg("load RewardedAd Succeed, Will show it automatic");
-                RewardedAd.showAd(adWrapper, "home", PORTAL_REWARD_BTN, new IAdShowListener() {
+                RewardedAd.showAd(adWrapper, HOME_SCENE, PORTAL_REWARD_BTN, new IAdShowListener() {
                     @Override
                     public void onAdShowFailed(String s, AdException e) {
 
@@ -142,7 +143,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         if (mRewardBtn.isEnabled() && mRewardBtn.getVisibility() == View.VISIBLE)//Button can click and visible
-            RewardedAd.showRewardedBadgeView("home", PORTAL_REWARD_BTN);//report rewarded button
+            RewardedAd.showRewardedBadgeView(HOME_SCENE, PORTAL_REWARD_BTN);//report rewarded button
     }
 
     private void showMsg(String msg) {
