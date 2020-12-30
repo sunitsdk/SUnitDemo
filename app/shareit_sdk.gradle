@@ -1,5 +1,6 @@
 ext {
     VERSION_SUNIT = "2.3.0.0"
+//    VERSION_SUNIT = "2.4.2.1"
 }
 
 android{
@@ -25,6 +26,15 @@ allprojects {
         maven {
             name "Fyber's maven repo"
             url "https://fyber.bintray.com/marketplace"
+        }
+
+        maven {
+            url 'https://dl.bintray.com/anythink/maven'
+        }
+
+        maven {
+            name "SUnit's medation maven repo"
+            url "https://dl.bintray.com/sunitsdk/mediation"
         }
 
         maven {
