@@ -1,11 +1,12 @@
 ### 2.4.2.0
 
 2021-01-06
+
 FEATURE:
 - 增加TopOn广告源
 
 CHANGES:
-使用最新[shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_240/app/shareit_sdk.gradle)
+- 使用最新[shareit_sdk.gradle](https://github.com/sunitsdk/SUnitDemo/blob/master_240/app/shareit_sdk.gradle)
 
 
 ### 2.3.0.0
